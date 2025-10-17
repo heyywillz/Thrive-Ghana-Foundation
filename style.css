@@ -1,16 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito Sans', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 :root {
-    --color-primary: #ff0b57;    
-    --color-accent: #320063;       
-    --color-text-primary: #333333; 
-    --color-text-accent: #7420C7;    
-    --color-bg-base: #F5F5F5;
+  --color-primary: #ff0b57;
+  --color-accent: #320063;
+  --color-text-primary: #333333;
+  --color-text-accent: #7420c7;
+  --color-bg-base: #f5f5f5;
+  --color-bg: #fff;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 14rem;
+  background-color: var(--color-accent);
+}
+
+section {
+  padding-left: 14rem;
+  padding-right: 14rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style-type: none;
+}
+
+nav a {
+  color: var(--color-bg);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ff0b57;
+  transition: 0.2s ease-in;
+}
+
+.donate-btn a {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.7rem 4rem;
+  border-radius: 8px;
+  border: 2px solid var(--color-bg);
+}
+
+.donate-btn a:hover {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  transition: 0.2s ease-in;
+}
+
+.hero {
+  background: url(assets/hero-image-1.webp);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  height: 98vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.605);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero h1 {
+  color: var(--color-bg);
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hero p,
+.hero span {
+  color: var(--color-bg);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.hero-btn {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero-btn .first-btn {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.8rem 3rem;
+  border-radius: 5px;
+}
+
+.hero-btn .first-btn:hover {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  transition: 0.2s ease-in;
+}
+
+.hero-btn .second-btn {
+  background-color: transparent;
+  color: var(--color-bg);
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50%;
+  border: 2px solid var(--color-bg);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+@media (max-width: 1300px) {
+  header {
+    padding: 1.5rem 4rem;
+  }
+  section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (max-width: 960px) {
+  header {
+    padding: 1.5rem 2rem;
+  }
+
+  section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .donate-btn {
+    display: none;
+  }
 }
