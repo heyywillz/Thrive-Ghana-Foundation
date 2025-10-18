@@ -164,12 +164,12 @@ nav a:hover {
 
 @media (max-width: 960px) {
   header {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem;
   }
 
   section {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .logo img {
@@ -210,4 +210,17 @@ nav a:hover {
     display: block;
     margin: 2rem 0 1rem 0;
   }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p,
+  .hero span {
+    font-size: 1rem;
+}
 }
