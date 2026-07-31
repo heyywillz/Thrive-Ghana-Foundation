@@ -1,50 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Atabisa Williams" />
-    <meta
-      name="description"
-      content="Thrive Ghana Foundation is a non-profit organization dedicated to improving the lives of vulnerable people, especially children, across Ghana. This repository hosts the official website and digital resources for the foundation, focusing on community development, education, nutrition, clean water, and shelter initiatives"
-    />
-    <title>Gallery | Thrive Ghana Foundation</title>
-    <link rel="icon" href="assets/Title-logo.webp">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img src="assets/Thrive-logo.webp" alt="Thrive Logo" />
-      </div>
-      <div class="nav-container">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Thrive Ghana Foundation" />
+  <meta
+    name="description"
+    content="Photo and video gallery of Thrive Ghana Foundation projects, clean water boreholes, school donations, medical clinics, and leadership workshops."
+  />
+  <title>Gallery - Thrive Ghana Foundation</title>
+  <link rel="icon" href="assets/Title-logo.webp" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#200747',
+            'brand-purple-dark': '#140430',
+            'brand-purple-accent': '#6C13B7',
+            'brand-pink': '#E60067',
+            'brand-pink-hover': '#C50058',
+            'bg-light': '#F8F9FA',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom Styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="growlead-header sticky top-0 z-50 bg-brand-purple border-b border-white/10 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Home</a>
+          <a href="about.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">About Us</a>
+          <a href="events.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Events</a>
+          <a href="gallery.html" class="nav-link active text-brand-pink font-medium text-sm tracking-wide transition-colors">Gallery</a>
+          <a href="news.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">News</a>
+          <a href="contact.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Contact</a>
         </nav>
-        <div class="donate-btn">
-          <a href="">Donate</a>
+
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="#donate" class="open-donate-modal inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-semibold px-5 sm:px-8 py-2 sm:py-2.5 rounded-xl border border-white/40 shadow-sm transition-all transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wide">
+            Donate
+          </a>
+
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+          </button>
         </div>
       </div>
-      <div class="toggle-btn">
-        <i class="fa fa-bars"></i>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden md:hidden bg-brand-purple-dark border-b border-purple-800 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Home</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">About Us</a>
+      <a href="events.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Events</a>
+      <a href="gallery.html" class="block px-3 py-2.5 rounded-xl text-base font-semibold text-brand-pink bg-purple-900/40">Gallery</a>
+      <a href="news.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">News</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= SHORT HERO SECTION WITH STATIC BACKGROUND (NO ZOOM ON SUBPAGES) ================= -->
+    <section class="subpage-hero relative overflow-hidden">
+      <!-- Static Clean Background Image Container (No Zoom Effect) -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/youth-mentorship.jpg');"></div>
+
+      <!-- Increased Rich Black Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
+      
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight">Impact Media Gallery</h1>
+        <div class="flex items-center justify-center gap-2 text-sm text-gray-300 font-medium">
+          <a href="index.html" class="hover:text-brand-pink transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-brand-pink">Gallery</span>
+        </div>
       </div>
-    </header>
-    <main></main>
-    <footer></footer>
-  </body>
+    </section>
+
+    <!-- ================= GALLERY SECTION ================= -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <button data-filter="all" class="filter-tab-btn px-6 py-2.5 rounded-full text-sm font-bold bg-brand-pink text-white shadow-md transition-all">
+            All Media
+          </button>
+          <button data-filter="education" class="filter-tab-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-all">
+            Education
+          </button>
+          <button data-filter="water" class="filter-tab-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-all">
+            Clean Water
+          </button>
+          <button data-filter="women" class="filter-tab-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-all">
+            Women Leadership
+          </button>
+          <button data-filter="health" class="filter-tab-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-all">
+            Healthcare
+          </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="education">
+            <a href="#" class="lightbox-trigger block" data-src="assets/education-initiative.jpg" data-caption="Quality Education Classrooms in Northern Ghana">
+              <img src="assets/education-initiative.jpg" alt="Education Project" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-brand-pink text-xs font-bold uppercase tracking-wider">Education</span>
+                <h4 class="text-white font-bold text-lg">Classroom Learning Materials Distribution</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="water">
+            <a href="#" class="lightbox-trigger block" data-src="assets/clean-water-initiative.jpg" data-caption="Clean Water Borehole Commissioning in Rural Ghana">
+              <img src="assets/clean-water-initiative.jpg" alt="Clean Water Project" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-brand-purple-accent text-xs font-bold uppercase tracking-wider">Clean Water</span>
+                <h4 class="text-white font-bold text-lg">Village Borehole Commissioning Celebration</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="women">
+            <a href="#" class="lightbox-trigger block" data-src="assets/community-empowerment.jpg" data-caption="Women Leadership & Economic Skills Training Workshop">
+              <img src="assets/community-empowerment.jpg" alt="Women Workshop" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-purple-300 text-xs font-bold uppercase tracking-wider">Leadership</span>
+                <h4 class="text-white font-bold text-lg">Grassroots Women Leadership Forum</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="education">
+            <a href="#" class="lightbox-trigger block" data-src="assets/youth-mentorship.jpg" data-caption="Youth Mentorship and Career Guidance Session">
+              <img src="assets/youth-mentorship.jpg" alt="Youth Mentorship" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-amber-300 text-xs font-bold uppercase tracking-wider">Mentorship</span>
+                <h4 class="text-white font-bold text-lg">High School Youth Career Mentorship</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="health">
+            <a href="#" class="lightbox-trigger block" data-src="assets/healthcare-outreach.jpg" data-caption="Free Health Screening & Medical Pack Distribution">
+              <img src="assets/healthcare-outreach.jpg" alt="Health Outreach" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Healthcare</span>
+                <h4 class="text-white font-bold text-lg">Community Medical Screening Outreach</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="women">
+            <a href="#" class="lightbox-trigger block" data-src="assets/director-portrait.jpg" data-caption="Executive Director Speaking at Community Empowerment Assembly">
+              <img src="assets/director-portrait.jpg" alt="Director Portrait" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-pink-300 text-xs font-bold uppercase tracking-wider">Advocacy</span>
+                <h4 class="text-white font-bold text-lg">Executive Leadership Address</h4>
+              </div>
+            </a>
+          </div>
+
+          <!-- New Additional Gallery Cards -->
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="education">
+            <a href="#" class="lightbox-trigger block" data-src="assets/gallery-8.jpg" data-caption="Child Support & School Feeding Initiative">
+              <img src="assets/gallery-8.jpg" alt="Child Support" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-brand-pink text-xs font-bold uppercase tracking-wider">Education</span>
+                <h4 class="text-white font-bold text-lg">Child Support & School Nutrition Program</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="women">
+            <a href="#" class="lightbox-trigger block" data-src="assets/gallery-9.jpg" data-caption="Grassroots Community Emergency Response Drive">
+              <img src="assets/gallery-9.jpg" alt="Community Relief" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-purple-300 text-xs font-bold uppercase tracking-wider">Outreach</span>
+                <h4 class="text-white font-bold text-lg">Grassroots Community Support Drive</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="health">
+            <a href="#" class="lightbox-trigger block" data-src="assets/gallery-10.jpg" data-caption="Humanitarian Aid & Maternal Care Package Distribution">
+              <img src="assets/gallery-10.jpg" alt="Humanitarian Aid" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Healthcare</span>
+                <h4 class="text-white font-bold text-lg">Humanitarian & Maternal Relief</h4>
+              </div>
+            </a>
+          </div>
+
+          <div class="filterable-item relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer growlead-card" data-category="water">
+            <a href="#" class="lightbox-trigger block" data-src="assets/gallery-11.jpg" data-caption="Water Sanitation & Hygiene Education Assembly">
+              <img src="assets/gallery-11.jpg" alt="Water Sanitation" class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-purple-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span class="text-brand-purple-accent text-xs font-bold uppercase tracking-wider">Clean Water</span>
+                <h4 class="text-white font-bold text-lg">Hygiene & Clean Water Workshop</h4>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <button class="close-lightbox absolute top-6 right-6 text-white text-3xl hover:text-brand-pink">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-4xl w-full text-center">
+      <img id="lightbox-img" src="" alt="Enlarged view" class="max-h-[80vh] mx-auto rounded-2xl shadow-2xl object-contain border border-white/20" />
+      <p id="lightbox-caption" class="text-white text-base font-semibold mt-4"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purple-dark text-white border-t border-purple-900/60 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        
+        <div class="lg:col-span-4 space-y-6">
+          <a href="index.html" class="inline-block">
+            <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-12 w-auto" />
+          </a>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Thrive Ghana Foundation is a Ghanaian NGO dedicated to empowering women, girls, and marginalized communities through education, clean water, healthcare, and leadership initiatives.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
+            <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Subscribe to Newsletter</h4>
+          <form class="space-y-3">
+            <input
+              type="email"
+              required
+              placeholder="sample@mail.com"
+              class="w-full bg-purple-950/70 border border-purple-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-pink placeholder-gray-400"
+            />
+            <button
+              type="submit"
+              class="w-full bg-white hover:bg-gray-100 text-brand-purple font-bold py-3 rounded-xl transition-all text-sm shadow-md"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-purple-900/80 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; 2026 Thrive Ghana Foundation | All Rights Reserved</p>
+        <p>Empowering communities. Building leaders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button id="scroll-to-top-btn" class="hidden" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-lg"></i>
+  </button>
+
+  <!-- Donation Modal -->
+  <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
+    <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+      </div>
+      <form class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          </div>
+        </div>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>

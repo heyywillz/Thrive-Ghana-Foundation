@@ -1,50 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Atabisa Williams" />
-    <meta
-      name="description"
-      content="Thrive Ghana Foundation is a non-profit organization dedicated to improving the lives of vulnerable people, especially children, across Ghana. This repository hosts the official website and digital resources for the foundation, focusing on community development, education, nutrition, clean water, and shelter initiatives"
-    />
-    <title>About | Thrive Ghana Foundation</title>
-    <link rel="icon" href="assets/Title-logo.webp">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img src="assets/Thrive-logo.webp" alt="Thrive Logo" />
-      </div>
-      <div class="nav-container">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Thrive Ghana Foundation" />
+  <meta
+    name="description"
+    content="Learn about Thrive Ghana Foundation - our mission, vision, leadership team, core values, and our story of empowering communities across Ghana."
+  />
+  <title>About Us - Thrive Ghana Foundation</title>
+  <link rel="icon" href="assets/Title-logo.webp" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#200747',
+            'brand-purple-dark': '#140430',
+            'brand-purple-accent': '#6C13B7',
+            'brand-pink': '#E60067',
+            'brand-pink-hover': '#C50058',
+            'bg-light': '#F8F9FA',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom Styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="growlead-header sticky top-0 z-50 bg-brand-purple border-b border-white/10 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Home</a>
+          <a href="about.html" class="nav-link active text-brand-pink font-medium text-sm tracking-wide transition-colors flex items-center gap-1">About Us</a>
+          <a href="events.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Events</a>
+          <a href="gallery.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Gallery</a>
+          <a href="news.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">News</a>
+          <a href="contact.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Contact</a>
         </nav>
-        <div class="donate-btn">
-          <a href="">Donate</a>
+
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="#donate" class="open-donate-modal inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-semibold px-5 sm:px-8 py-2 sm:py-2.5 rounded-xl border border-white/40 shadow-sm transition-all transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wide">
+            Donate
+          </a>
+
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+          </button>
         </div>
       </div>
-      <div class="toggle-btn">
-        <i class="fa fa-bars"></i>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden md:hidden bg-brand-purple-dark border-b border-purple-800 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Home</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-xl text-base font-semibold text-brand-pink bg-purple-900/40">About Us</a>
+      <a href="events.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Events</a>
+      <a href="gallery.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Gallery</a>
+      <a href="news.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">News</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= SHORT HERO SECTION WITH STATIC BACKGROUND (NO ZOOM ON SUBPAGES) ================= -->
+    <section class="subpage-hero relative overflow-hidden">
+      <!-- Static Clean Background Image Container (No Zoom Effect) -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/education-initiative.jpg');"></div>
+
+      <!-- Increased Rich Black Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
+      
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight">About Thrive Ghana Foundation</h1>
+        <div class="flex items-center justify-center gap-2 text-sm text-gray-300 font-medium">
+          <a href="index.html" class="hover:text-brand-pink transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-brand-pink">About Us</span>
+        </div>
       </div>
-    </header>
-    <main></main>
-    <footer></footer>
-  </body>
+    </section>
+
+    <!-- ================= WHO WE ARE ================= -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-brand-purple-accent font-bold text-sm sm:text-base">Our Story & Purpose</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
+              Nurturing Champions & Transforming Rural Communities Across Ghana
+            </h2>
+            <p class="text-gray-600 text-lg leading-relaxed">
+              Founded with an uncompromising belief that human potential should never be limited by geography or socio-economic background, Thrive Ghana Foundation works at the heart of underserved communities in Ghana.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              We operate across key developmental pillars: removing educational barriers for children, constructing clean water boreholes, conducting medical outreach clinics, and hosting economic leadership workshops for young women.
+            </p>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="assets/education-initiative.jpg" alt="Children Learning" class="w-full h-64 object-cover rounded-2xl shadow-lg growlead-card" />
+              <img src="assets/clean-water-initiative.jpg" alt="Clean Water Project" class="w-full h-64 object-cover rounded-2xl shadow-lg growlead-card mt-6" />
+              <img src="assets/community-empowerment.jpg" alt="Women Workshop" class="w-full h-64 object-cover rounded-2xl shadow-lg growlead-card -mt-6" />
+              <img src="assets/youth-mentorship.jpg" alt="Youth Mentorship" class="w-full h-64 object-cover rounded-2xl shadow-lg growlead-card" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOUR PILLARS ================= -->
+    <section class="py-20 bg-bg-light border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="text-brand-purple-accent font-bold text-sm sm:text-base">Our Approach</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Four Pillars of Sustainable Impact</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-pink-100 text-brand-pink flex items-center justify-center text-2xl font-bold">
+              <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Quality Education</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Providing scholarships, learning kits, school rehabilitation, and mentorship to keep vulnerable children in school.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-brand-purple-accent flex items-center justify-center text-2xl font-bold">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Clean Water</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Drilling solar-powered mechanized boreholes to provide 24/7 safe drinking water for remote villages.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-brand-purple flex items-center justify-center text-2xl font-bold">
+              <i class="fa-solid fa-person-breastfeeding"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Women Empowerment</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Entrepreneurship workshops, financial literacy training, and civic advocacy programs for women.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+              <i class="fa-solid fa-notes-medical"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Healthcare Outreach</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Organizing medical screening camps, maternal care packs, and health education in rural areas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LEADERSHIP TEAM ================= -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <span class="text-brand-purple-accent font-bold text-sm sm:text-base">Our Team</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-16 mt-2">Meet Our Board & Leadership</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+          
+          <div class="bg-bg-light rounded-3xl overflow-hidden border border-gray-200 shadow-md p-6 space-y-4">
+            <img src="assets/director-portrait.jpg" alt="Executive Director" class="w-full aspect-square object-cover rounded-2xl shadow-md" />
+            <div>
+              <h3 class="text-xl font-extrabold text-gray-900">Hajia Amina Sulemana</h3>
+              <p class="text-brand-pink font-semibold text-sm mt-0.5">Executive Director / CEO</p>
+            </div>
+            <p class="text-gray-600 text-xs leading-relaxed">
+              Visionary development leader with over 10 years of experience advocating for women empowerment and child literacy across Ghana.
+            </p>
+          </div>
+
+          <div class="bg-bg-light rounded-3xl overflow-hidden border border-gray-200 shadow-md p-6 space-y-4">
+            <img src="assets/team-kwame.jpg" alt="Kwame Osei Boateng" class="w-full aspect-square object-cover rounded-2xl shadow-md" />
+            <div>
+              <h3 class="text-xl font-extrabold text-gray-900">Kwame Osei Boateng</h3>
+              <p class="text-brand-pink font-semibold text-sm mt-0.5">Head of Programs & Operations</p>
+            </div>
+            <p class="text-gray-600 text-xs leading-relaxed">
+              Oversees field operations, community stakeholder partnerships, and monitoring & evaluation of water and infrastructure projects.
+            </p>
+          </div>
+
+          <div class="bg-bg-light rounded-3xl overflow-hidden border border-gray-200 shadow-md p-6 space-y-4">
+            <img src="assets/team-abena.jpg" alt="Abena Serwaa Mensah" class="w-full aspect-square object-cover rounded-2xl shadow-md" />
+            <div>
+              <h3 class="text-xl font-extrabold text-gray-900">Abena Serwaa Mensah</h3>
+              <p class="text-brand-pink font-semibold text-sm mt-0.5">Community Engagement Lead</p>
+            </div>
+            <p class="text-gray-600 text-xs leading-relaxed">
+              Specializes in grassroots mobilization, volunteer management, and women’s economic micro-enterprise mentorship.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= READY TO GET STARTED? ================= -->
+    <section class="py-20 bg-growlead-purple-stripe text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-white">
+          Ready to Get Started?
+        </h2>
+        <p class="text-gray-200 text-lg leading-relaxed">
+          Join us in shaping the future of leadership and empowerment. Whether you’re looking to volunteer, donate, or partner with us, your contribution makes a real difference.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <a href="contact.html" class="inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-bold px-8 py-3.5 rounded-full shadow-xl transition-all text-base">
+            Become a Volunteer
+          </a>
+          <a href="contact.html" class="inline-flex items-center justify-center bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-purple font-bold px-8 py-3.5 rounded-full transition-all text-base">
+            Become a Partner
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brand-purple-dark text-white border-t border-purple-900/60 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        
+        <div class="lg:col-span-4 space-y-6">
+          <a href="index.html" class="inline-block">
+            <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-12 w-auto" />
+          </a>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Thrive Ghana Foundation is a Ghanaian NGO dedicated to empowering women, girls, and marginalized communities through education, clean water, healthcare, and leadership initiatives.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
+            <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Subscribe to Newsletter</h4>
+          <form class="space-y-3">
+            <input
+              type="email"
+              required
+              placeholder="sample@mail.com"
+              class="w-full bg-purple-950/70 border border-purple-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-pink placeholder-gray-400"
+            />
+            <button
+              type="submit"
+              class="w-full bg-white hover:bg-gray-100 text-brand-purple font-bold py-3 rounded-xl transition-all text-sm shadow-md"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-purple-900/80 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; 2026 Thrive Ghana Foundation | All Rights Reserved</p>
+        <p>Empowering communities. Building leaders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button id="scroll-to-top-btn" class="hidden" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-lg"></i>
+  </button>
+
+  <!-- Donation Modal -->
+  <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
+    <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+      </div>
+      <form class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          </div>
+        </div>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>

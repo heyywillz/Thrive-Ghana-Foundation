@@ -1,76 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Atabisa Williams" />
-    <meta
-      name="description"
-      content="Thrive Ghana Foundation is a non-profit organization dedicated to improving the lives of vulnerable people, especially children, across Ghana. This repository hosts the official website and digital resources for the foundation, focusing on community development, education, nutrition, clean water, and shelter initiatives"
-    />
-    <title>Home | Thrive Ghana Foundation</title>
-    <link rel="icon" href="assets/Title-logo.webp" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img src="assets/Thrive-logo.webp" alt="Thrive Logo" />
-      </div>
-      <div class="nav-container">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Thrive Ghana Foundation" />
+  <meta
+    name="description"
+    content="Thrive Ghana Foundation is a non-profit organization dedicated to empowering children, women, and vulnerable communities across Ghana through education, clean water, healthcare, and leadership initiatives."
+  />
+  <title>Home - Thrive Ghana Foundation</title>
+  <link rel="icon" href="assets/Title-logo.webp" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#200747',
+            'brand-purple-dark': '#140430',
+            'brand-purple-accent': '#6C13B7',
+            'brand-pink': '#E60067',
+            'brand-pink-hover': '#C50058',
+            'bg-light': '#F8F9FA',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom Styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="growlead-header sticky top-0 z-50 bg-brand-purple border-b border-white/10 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo (Responsive Compact Size) -->
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <img src="assets/Thrive-logo.webp" alt="Thrive Ghana Foundation Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <a href="index.html" class="nav-link active text-brand-pink font-medium text-sm tracking-wide transition-colors">Home</a>
+          <a href="about.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors flex items-center gap-1">About Us</a>
+          <a href="events.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Events</a>
+          <a href="gallery.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Gallery</a>
+          <a href="news.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">News</a>
+          <a href="contact.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Contact</a>
         </nav>
-        <div class="donate-btn">
-          <a href="">Donate</a>
+
+        <!-- Donate Button & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="#donate" class="open-donate-modal inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-semibold px-5 sm:px-8 py-2 sm:py-2.5 rounded-xl border border-white/40 shadow-sm transition-all transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wide">
+            Donate
+          </a>
+
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+          </button>
         </div>
       </div>
-      <div class="toggle-btn">
-        <i class="fa fa-bars"></i>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="hidden md:hidden bg-brand-purple-dark border-b border-purple-800 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-xl text-base font-semibold text-brand-pink bg-purple-900/40">Home</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">About Us</a>
+      <a href="events.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Events</a>
+      <a href="gallery.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Gallery</a>
+      <a href="news.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">News</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SLIDER SECTION WITH ZOOM OUT (INDEX ONLY) & INCREASED GRADIENT ================= -->
+    <section id="hero-section" class="relative min-h-[85vh] flex items-center overflow-hidden">
+      
+      <!-- Zoom-Out Background Image Container (Homepage ONLY) -->
+      <div id="hero-bg-img" class="absolute inset-0 bg-cover bg-center animate-hero-zoomout transition-opacity duration-500" style="background-image: url('assets/gallery-1.jpg');"></div>
+
+      <!-- Increased Rich Black Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
+
+      <!-- Left Vertical Slider Progress Indicator -->
+      <div class="absolute left-8 top-1/2 -translate-y-1/2 w-[2px] h-20 bg-white/40 hidden md:block rounded-full z-20 overflow-hidden">
+        <div id="hero-progress-bar" class="w-full h-1/3 bg-brand-pink rounded-full transition-all duration-500"></div>
       </div>
-    </header>
-    <main>
-      <section class="hero">
-        <div class="hero-text">
-          <span>Together for Hope and Humanity</span>
-          <h1>Building a Future Where Every Child Thrives</h1>
-          <p>
-            We empower vulnerable children and families with education, food,
-            water, shelter, and care for a life of dignity and hope.
+
+      <!-- Bottom Left Slider Control Buttons ([ < ] [ > ]) -->
+      <div class="absolute bottom-6 left-6 z-20 flex items-center gap-1">
+        <button id="hero-prev" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-brand-pink text-white flex items-center justify-center border border-white/20 backdrop-blur-md transition-all cursor-pointer">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        <button id="hero-next" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-brand-pink text-white flex items-center justify-center border border-white/20 backdrop-blur-md transition-all cursor-pointer">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:pl-20">
+        <div id="hero-content-box" class="max-w-2xl space-y-5 transition-all duration-500 transform opacity-100 translate-x-0">
+          
+          <span id="hero-tagline" class="inline-block text-white font-normal text-base sm:text-lg tracking-wide">
+            Together for Inclusive Development
+          </span>
+
+          <h1 id="hero-title" class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight">
+            Partnerships that Drive Sustainable Change
+          </h1>
+
+          <p id="hero-desc" class="text-gray-200 text-base sm:text-lg font-normal leading-relaxed max-w-xl">
+            Collaborate with us to champion civic responsibility, economic empowerment, and inclusive leadership.
           </p>
-          <div class="hero-btn">
-            <a href="" class="first-btn">Get Involved</a>
-            <a href="" class="second-btn"
-              ><i class="fa-solid fa-arrow-right"></i>
+
+          <div class="pt-2 flex items-center gap-4">
+            <a href="about.html" class="inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition-all text-sm">
+              <span id="hero-btn-text">Get Involved</span>
+            </a>
+
+            <a href="about.html" class="w-12 h-12 rounded-full border border-white/40 bg-white/10 hover:bg-brand-pink hover:border-brand-pink text-white flex items-center justify-center transition-all cursor-pointer" aria-label="Learn more about our mission">
+              <i class="fa-solid fa-arrow-right text-sm"></i>
             </a>
           </div>
+
         </div>
-      </section>
-      <section class="intro"></section>
-      <section class="what-we-do"></section>
-      <section class="vision-mission"></section>
-      <section class="welcome"></section>
-      <section class="achievements"></section>
-      <section class="testimonials"></section>
-      <section class="faq"></section>
-      <section class="contact"></section>
-      <section class="get-involved"></section>
-    </main>
-    <footer></footer>
-  </body>
+      </div>
+    </section>
+
+    <!-- ================= WELCOME SECTION ================= -->
+    <section class="py-20 bg-bg-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-8 space-y-6">
+            <span class="text-brand-purple-accent font-bold text-sm sm:text-base">
+              Welcome to Thrive Ghana Foundation
+            </span>
+            
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+              Empowering Communities. Building Leaders. Creating Lasting Change.
+            </h2>
+            
+            <p class="text-gray-600 text-lg leading-relaxed">
+              Thrive Ghana Foundation is a not-for-profit Ghanaian NGO dedicated to empowering women, girls, and marginalized communities, particularly in the five regions in the North, Zongo neighborhoods, and settler enclaves.
+            </p>
+          </div>
+
+          <div class="lg:col-span-4 text-center">
+            <div class="p-8 rounded-3xl bg-white shadow-xl border border-gray-100 inline-block">
+              <img src="assets/Title-logo.webp" alt="Thrive Ghana Shield Emblem Logo" class="w-48 h-auto mx-auto" />
+              <span class="block text-brand-purple font-extrabold text-sm uppercase tracking-widest mt-4">EST. 2023</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT WE DO SECTION ================= -->
+    <section id="what-we-do" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-brand-purple-accent font-bold text-sm sm:text-base">
+              What We Do
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+              Transforming Potential Into Leadership Through Empowerment And Training.
+            </h2>
+
+            <p class="text-gray-600 text-base leading-relaxed">
+              Through our programmes, we nurture leadership, amplify voices, and create opportunities for women and girls to participate meaningfully in civic life and decision-making.
+            </p>
+
+            <p class="text-gray-600 text-base leading-relaxed">
+              We believe strong communities are built when women and girls are equipped with the skills, confidence, and networks they need to drive lasting change.
+            </p>
+
+            <div class="pt-2">
+              <a href="about.html" class="inline-flex items-center justify-center bg-brand-purple-accent hover:bg-purple-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all text-sm shadow-md">
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+              <img src="assets/community-empowerment.jpg" alt="What We Do Auditorium Training" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VISION & MISSION SECTION ================= -->
+    <section class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-purple-accent mb-16">
+          Vision & Mission
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+          
+          <div class="space-y-4">
+            <h3 class="text-2xl font-extrabold text-gray-900">Vision</h3>
+            <p class="text-gray-600 text-base leading-relaxed">
+              To create a future where women, girls, and marginalized groups are fully aware of their social and political rights and are empowered to actively participate in civic and community life.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-2xl font-extrabold text-gray-900">Mission</h3>
+            <p class="text-gray-600 text-base leading-relaxed">
+              To provide opportunities and platforms for women and girls to develop their capacities, strengthen leadership skills, and actively engage in decisions that impact their lives and communities.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXECUTIVE DIRECTOR MESSAGE ================= -->
+    <section class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl overflow-hidden shadow-2xl">
+              <img src="assets/director-portrait.jpg" alt="Executive Director" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6">
+            <span class="text-brand-purple-accent font-bold text-sm sm:text-base">
+              Welcome Message from the Executive Director
+            </span>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 italic leading-snug">
+              “Leadership is not defined by position alone, it is about courage, voice, and impact.”
+            </h3>
+
+            <p class="text-gray-600 text-base leading-relaxed">
+              It is with great pride and deep conviction that I welcome you to this bold and visionary initiative to nurture champions from our communities for generations to come. Our mission to transform the narrative of our Northern, Zongo and settler communities in Ghana could not be more timely or urgent.
+            </p>
+
+            <p class="text-gray-600 text-base leading-relaxed">
+              At Thrive Ghana Foundation, we believe in building a future where every woman and girl has the confidence, skills, and opportunities to rise, lead, and inspire. As Executive Director, I draw inspiration from the courage, resilience, and brilliance of women and girls from the five regions in the North, the Zongo communities and marginalised communities who continue to defy limitations and strive for excellence.
+            </p>
+
+            <p class="text-gray-600 text-base leading-relaxed">
+              Our focus is to help ignite their confidence, break barriers, and amplify their voices, ensuring that they not only take their rightful places at decision-making tables but also lead with influence and purpose.
+            </p>
+
+            <p class="text-gray-600 text-base leading-relaxed">
+              With great pleasure, I invite you to join us in this noble cause. Together, we can nurture voices, cultivate leadership, and spark transformative change that will echo across generations.
+            </p>
+
+            <div class="pt-2 space-y-1">
+              <p class="text-gray-500 font-medium text-sm">Warmly,</p>
+              <h4 class="font-extrabold text-gray-900 text-xl">Hajia Amina Sulemana</h4>
+              <p class="text-brand-purple-accent font-semibold text-sm">Executive Director</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-20 border-b border-gray-200"></div>
+      </div>
+    </section>
+
+    <!-- ================= ORGANISATIONAL VALUES ================= -->
+    <section class="py-20 bg-growlead-purple-stripe text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+          <div class="lg:col-span-5">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+              Organisational Values
+            </h2>
+          </div>
+          <div class="lg:col-span-7">
+            <p class="text-gray-200 text-lg leading-relaxed">
+              Our values are the guiding principles that shape our mission to empower women and girls across Ghana’s five northern regions and Zongo and settler communities. They define who we are, how we work, and the impact we seek to make.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6 Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
+              <img src="assets/education-initiative.jpg" alt="Leadership" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Leadership</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Through mentorship, training, and exposure to opportunities, we inspire them to lead with confidence, purpose, and integrity in their communities and beyond.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
+              <img src="assets/community-empowerment.jpg" alt="Empowerment" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Empowerment</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Our programmes build their skills, self-belief, and networks, enabling them to take control of their futures and become catalysts for progress in their societies.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
+              <img src="assets/youth-mentorship.jpg" alt="Integrity" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Integrity</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Every decision, partnership, and activity is anchored in accountability, respect, and service to the communities we represent.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
+              <img src="assets/healthcare-outreach.jpg" alt="Inclusivity" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Inclusivity</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Our programmes are designed to be accessible, participatory, and reflective of the diverse realities of our target communities, regardless of social, cultural, or economic background.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
+              <img src="assets/clean-water-initiative.jpg" alt="Collaboration" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Collaboration</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              We engage community leaders, development actors, and civil society organisations to co-create solutions that amplify impact and ensure long-term relevance.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
+              <img src="assets/director-portrait.jpg" alt="Partnerships and Networks" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white">Partnerships and Networks</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              We cultivate and sustain relationships with institutions and individuals who share our vision, leveraging shared values and expertise to expand opportunities and drive transformative outcomes.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ACCORDION ================= -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-brand-purple-accent font-bold text-sm sm:text-base">FAQ</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
+              Answers To Common Questions
+            </h2>
+            <p class="text-gray-600 text-base leading-relaxed">
+              At Thrive Ghana Foundation, we value transparency and clarity. We’ve compiled answers to some of the most common questions about who we are, what we do, and how you can get involved. If you don’t find what you’re looking for, feel free to reach out; we’re always happy to connect.
+            </p>
+            <div>
+              <a href="contact.html" class="inline-flex items-center justify-center bg-brand-purple-accent hover:bg-purple-800 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-2">
+            
+            <details class="growlead-faq-item">
+              <summary class="text-lg">
+                <span>What is Thrive Ghana Foundation all about?</span>
+                <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
+              </summary>
+              <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                Thrive Ghana Foundation is a registered not-for-profit organization dedicated to leadership development and empowerment, with a focus on women, youth, and grassroots communities, especially in the Zongo and settler communities of Ghana.
+              </p>
+            </details>
+
+            <details class="growlead-faq-item">
+              <summary class="text-lg">
+                <span>How can I donate to support your work?</span>
+                <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
+              </summary>
+              <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                You can donate directly through our website’s Donate page using secure online payment options. Every contribution goes directly into supporting our projects, training programs, and community initiatives.
+              </p>
+            </details>
+
+            <details class="growlead-faq-item">
+              <summary class="text-lg">
+                <span>Do you accept volunteers?</span>
+                <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
+              </summary>
+              <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                Yes! We welcome volunteers who are passionate about leadership, community development, and empowerment. Simply visit our Contact page, complete the application form, and our team will connect with you.
+              </p>
+            </details>
+
+            <details class="growlead-faq-item">
+              <summary class="text-lg">
+                <span>Where does my donation go?</span>
+                <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
+              </summary>
+              <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                Your donations support leadership training, youth development, women empowerment programs, mentorship initiatives, and community development projects. We ensure transparency and accountability in how funds are used.
+              </p>
+            </details>
+
+            <details class="growlead-faq-item">
+              <summary class="text-lg">
+                <span>How do I become a partner with Thrive Ghana Foundation?</span>
+                <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
+              </summary>
+              <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                If your organization or business is interested in collaborating, please contact us via the Contact page. We believe in building strong partnerships for lasting community impact.
+              </p>
+            </details>
+
+            <details class="growlead-faq-item">
+              <summary class="text-lg">
+                <span>How can I benefit from your programs?</span>
+                <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
+              </summary>
+              <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                Our programs are open to women, youth, and community members in our operational target areas. Visit our Contact or Events page to find out how to get involved.
+              </p>
+            </details>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT FORM SECTION ================= -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-bg-light p-8 sm:p-12 rounded-3xl border border-gray-200">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+              <span class="text-brand-purple-accent font-bold text-sm sm:text-base">Let's Connect</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">We're Ready To Assist</h2>
+              <p class="text-gray-600 text-base leading-relaxed">
+                We’d love to hear from you. Whether you have questions, want to collaborate, or are looking for ways to support our mission, our team is ready to engage with you. Reach out today and let’s work together to create lasting change.
+              </p>
+
+              <form class="space-y-4 pt-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input type="text" required placeholder="First Name" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                  <input type="text" required placeholder="Last Name" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input type="email" required placeholder="Email Address *" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                  <input type="tel" placeholder="Phone Number" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                </div>
+                <input type="text" required placeholder="Subject" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                <textarea rows="4" required placeholder="Your Message *" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent"></textarea>
+                
+                <button type="submit" class="bg-brand-purple-accent hover:bg-purple-800 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md">
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl overflow-hidden shadow-2xl">
+                <img src="assets/youth-mentorship.jpg" alt="Assist Team Member" class="w-full h-auto object-cover" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= READY TO GET STARTED? ================= -->
+    <section class="py-20 bg-growlead-purple-stripe text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-white">
+          Ready to Get Started?
+        </h2>
+        <p class="text-gray-200 text-lg leading-relaxed">
+          Join us in shaping the future of leadership and empowerment. Whether you’re looking to volunteer, donate, or partner with us, your contribution makes a real difference. Together, we can build stronger communities.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <a href="contact.html" class="inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-bold px-8 py-3.5 rounded-full shadow-xl transition-all text-base">
+            Become a Volunteer
+          </a>
+          <a href="contact.html" class="inline-flex items-center justify-center bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-purple font-bold px-8 py-3.5 rounded-full transition-all text-base">
+            Become a Mentor
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brand-purple-dark text-white border-t border-purple-900/60 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        
+        <div class="lg:col-span-4 space-y-6">
+          <a href="index.html" class="inline-block">
+            <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-12 w-auto" />
+          </a>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Thrive Ghana Foundation is a Ghanaian NGO dedicated to empowering women, girls, and marginalized communities through education, clean water, healthcare, and leadership initiatives.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
+            <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Subscribe to Newsletter</h4>
+          <form class="space-y-3">
+            <input
+              type="email"
+              required
+              placeholder="sample@mail.com"
+              class="w-full bg-purple-950/70 border border-purple-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-pink placeholder-gray-400"
+            />
+            <button
+              type="submit"
+              class="w-full bg-white hover:bg-gray-100 text-brand-purple font-bold py-3 rounded-xl transition-all text-sm shadow-md"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-purple-900/80 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; 2026 Thrive Ghana Foundation | All Rights Reserved</p>
+        <p>Empowering communities. Building leaders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button id="scroll-to-top-btn" class="hidden" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-lg"></i>
+  </button>
+
+  <!-- Donation Modal -->
+  <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
+    <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+      </div>
+      <form class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          </div>
+        </div>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>

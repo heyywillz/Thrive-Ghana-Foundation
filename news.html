@@ -1,50 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Atabisa Williams" />
-    <meta
-      name="description"
-      content="Thrive Ghana Foundation is a non-profit organization dedicated to improving the lives of vulnerable people, especially children, across Ghana. This repository hosts the official website and digital resources for the foundation, focusing on community development, education, nutrition, clean water, and shelter initiatives"
-    />
-    <title>News | Thrive Ghana Foundation</title>
-    <link rel="icon" href="assets/Title-logo.webp">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img src="assets/Thrive-logo.webp" alt="Thrive Logo" />
-      </div>
-      <div class="nav-container">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Thrive Ghana Foundation" />
+  <meta
+    name="description"
+    content="Latest news, field stories, press releases, and impact updates from Thrive Ghana Foundation."
+  />
+  <title>News & Impact Updates - Thrive Ghana Foundation</title>
+  <link rel="icon" href="assets/Title-logo.webp" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#200747',
+            'brand-purple-dark': '#140430',
+            'brand-purple-accent': '#6C13B7',
+            'brand-pink': '#E60067',
+            'brand-pink-hover': '#C50058',
+            'bg-light': '#F8F9FA',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom Styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="growlead-header sticky top-0 z-50 bg-brand-purple border-b border-white/10 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Home</a>
+          <a href="about.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">About Us</a>
+          <a href="events.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Events</a>
+          <a href="gallery.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Gallery</a>
+          <a href="news.html" class="nav-link active text-brand-pink font-medium text-sm tracking-wide transition-colors">News</a>
+          <a href="contact.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Contact</a>
         </nav>
-        <div class="donate-btn">
-          <a href="">Donate</a>
+
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="#donate" class="open-donate-modal inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-semibold px-5 sm:px-8 py-2 sm:py-2.5 rounded-xl border border-white/40 shadow-sm transition-all transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wide">
+            Donate
+          </a>
+
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+          </button>
         </div>
       </div>
-      <div class="toggle-btn">
-        <i class="fa fa-bars"></i>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden md:hidden bg-brand-purple-dark border-b border-purple-800 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Home</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">About Us</a>
+      <a href="events.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Events</a>
+      <a href="gallery.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Gallery</a>
+      <a href="news.html" class="block px-3 py-2.5 rounded-xl text-base font-semibold text-brand-pink bg-purple-900/40">News</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= SHORT HERO SECTION WITH STATIC BACKGROUND (NO ZOOM ON SUBPAGES) ================= -->
+    <section class="subpage-hero relative overflow-hidden">
+      <!-- Static Clean Background Image Container (No Zoom Effect) -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/healthcare-outreach.jpg');"></div>
+
+      <!-- Increased Rich Black Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
+      
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight">News & Field Updates</h1>
+        <div class="flex items-center justify-center gap-2 text-sm text-gray-300 font-medium">
+          <a href="index.html" class="hover:text-brand-pink transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-brand-pink">News</span>
+        </div>
       </div>
-    </header>
-    <main></main>
-    <footer></footer>
-  </body>
+    </section>
+
+    <!-- ================= FEATURED ARTICLE ================= -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-brand-purple to-brand-purple-dark rounded-3xl overflow-hidden shadow-2xl border border-purple-900 grid grid-cols-1 lg:grid-cols-12 text-white">
+          <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <span class="px-4 py-1.5 bg-brand-pink text-white text-xs font-bold rounded-full uppercase tracking-wider">Featured Story</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                Thrive Ghana Commissioned Solar Mechanized Water Borehole in East Gonja
+              </h2>
+              <p class="text-gray-300 text-base leading-relaxed">
+                Over 1,200 rural community members in Kpana village now have access to clean, safe drinking water for the first time in over a decade following the commissioning of a new high-capacity solar borehole.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-purple-800 text-xs text-gray-400">
+              <span><i class="fa-regular fa-calendar mr-2"></i> July 24, 2026</span>
+              <span><i class="fa-regular fa-clock mr-2"></i> 4 min read</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5 relative min-h-[300px]">
+            <img src="assets/clean-water-initiative.jpg" alt="Clean Water Project" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEWS GRID ================= -->
+    <section class="py-16 bg-bg-light border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- News 1 -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg growlead-card flex flex-col justify-between">
+            <div>
+              <img src="assets/education-initiative.jpg" alt="Education Scholarship" class="w-full h-52 object-cover" />
+              <div class="p-6 space-y-3">
+                <span class="px-3 py-1 bg-pink-100 text-brand-pink text-xs font-bold rounded-full uppercase">Education</span>
+                <h3 class="text-xl font-bold text-gray-900">Scholarship Fund Reaches 100 More Pupils</h3>
+                <p class="text-gray-600 text-xs leading-relaxed">
+                  Through partner donations, Thrive Ghana has provided learning kits, uniforms, and paid school fees for underserved students.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 text-xs text-gray-500">
+              <span>July 15, 2026</span>
+              <a href="#" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <!-- News 2 -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg growlead-card flex flex-col justify-between">
+            <div>
+              <img src="assets/community-empowerment.jpg" alt="Women Leadership" class="w-full h-52 object-cover" />
+              <div class="p-6 space-y-3">
+                <span class="px-3 py-1 bg-purple-100 text-brand-purple-accent text-xs font-bold rounded-full uppercase">Leadership</span>
+                <h3 class="text-xl font-bold text-gray-900">Women Entrepreneurship Micro-Grants</h3>
+                <p class="text-gray-600 text-xs leading-relaxed">
+                  25 women entrepreneurs graduated from our financial literacy boot camp and received seed grants for agribusiness.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 text-xs text-gray-500">
+              <span>June 28, 2026</span>
+              <a href="#" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
+            </div>
+          </div>
+
+          <!-- News 3 -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg growlead-card flex flex-col justify-between">
+            <div>
+              <img src="assets/healthcare-outreach.jpg" alt="Healthcare Outreach" class="w-full h-52 object-cover" />
+              <div class="p-6 space-y-3">
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full uppercase">Healthcare</span>
+                <h3 class="text-xl font-bold text-gray-900">Free Medical Clinic Serves 600 Residents</h3>
+                <p class="text-gray-600 text-xs leading-relaxed">
+                  Volunteer medical professionals provided free health screenings, malaria medication, and eye checkups to families.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 text-xs text-gray-500">
+              <span>June 10, 2026</span>
+              <a href="#" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purple-dark text-white border-t border-purple-900/60 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        
+        <div class="lg:col-span-4 space-y-6">
+          <a href="index.html" class="inline-block">
+            <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-12 w-auto" />
+          </a>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Thrive Ghana Foundation is a Ghanaian NGO dedicated to empowering women, girls, and marginalized communities through education, clean water, healthcare, and leadership initiatives.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
+            <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Subscribe to Newsletter</h4>
+          <form class="space-y-3">
+            <input
+              type="email"
+              required
+              placeholder="sample@mail.com"
+              class="w-full bg-purple-950/70 border border-purple-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-pink placeholder-gray-400"
+            />
+            <button
+              type="submit"
+              class="w-full bg-white hover:bg-gray-100 text-brand-purple font-bold py-3 rounded-xl transition-all text-sm shadow-md"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-purple-900/80 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; 2026 Thrive Ghana Foundation | All Rights Reserved</p>
+        <p>Empowering communities. Building leaders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button id="scroll-to-top-btn" class="hidden" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-lg"></i>
+  </button>
+
+  <!-- Donation Modal -->
+  <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
+    <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+      </div>
+      <form class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          </div>
+        </div>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>

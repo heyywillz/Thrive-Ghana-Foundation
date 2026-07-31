@@ -1,50 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Atabisa Williams" />
-    <meta
-      name="description"
-      content="Thrive Ghana Foundation is a non-profit organization dedicated to improving the lives of vulnerable people, especially children, across Ghana. This repository hosts the official website and digital resources for the foundation, focusing on community development, education, nutrition, clean water, and shelter initiatives"
-    />
-    <title>Contact | Thrive Ghana Foundation</title>
-    <link rel="icon" href="assets/Title-logo.webp">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img src="assets/Thrive-logo.webp" alt="Thrive Logo" />
-      </div>
-      <div class="nav-container">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Thrive Ghana Foundation" />
+  <meta
+    name="description"
+    content="Get in touch with Thrive Ghana Foundation - send an inquiry, volunteer, partner with us, or locate our head office."
+  />
+  <title>Contact Us - Thrive Ghana Foundation</title>
+  <link rel="icon" href="assets/Title-logo.webp" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#200747',
+            'brand-purple-dark': '#140430',
+            'brand-purple-accent': '#6C13B7',
+            'brand-pink': '#E60067',
+            'brand-pink-hover': '#C50058',
+            'bg-light': '#F8F9FA',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom Styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="growlead-header sticky top-0 z-50 bg-brand-purple border-b border-white/10 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group shrink-0">
+          <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <a href="index.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Home</a>
+          <a href="about.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">About Us</a>
+          <a href="events.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Events</a>
+          <a href="gallery.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">Gallery</a>
+          <a href="news.html" class="nav-link text-white hover:text-brand-pink font-medium text-sm tracking-wide transition-colors">News</a>
+          <a href="contact.html" class="nav-link active text-brand-pink font-medium text-sm tracking-wide transition-colors">Contact</a>
         </nav>
-        <div class="donate-btn">
-          <a href="">Donate</a>
+
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="#donate" class="open-donate-modal inline-flex items-center justify-center bg-brand-pink hover:bg-brand-pink-hover text-white font-semibold px-5 sm:px-8 py-2 sm:py-2.5 rounded-xl border border-white/40 shadow-sm transition-all transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wide">
+            Donate
+          </a>
+
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+          </button>
         </div>
       </div>
-      <div class="toggle-btn">
-        <i class="fa fa-bars"></i>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden md:hidden bg-brand-purple-dark border-b border-purple-800 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+      <a href="index.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Home</a>
+      <a href="about.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">About Us</a>
+      <a href="events.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Events</a>
+      <a href="gallery.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">Gallery</a>
+      <a href="news.html" class="block px-3 py-2.5 rounded-xl text-base font-medium text-gray-200 hover:text-brand-pink hover:bg-purple-900/20">News</a>
+      <a href="contact.html" class="block px-3 py-2.5 rounded-xl text-base font-semibold text-brand-pink bg-purple-900/40">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= SHORT HERO SECTION WITH STATIC BACKGROUND (NO ZOOM ON SUBPAGES) ================= -->
+    <section class="subpage-hero relative overflow-hidden">
+      <!-- Static Clean Background Image Container (No Zoom Effect) -->
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/clean-water-initiative.jpg');"></div>
+
+      <!-- Increased Rich Black Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
+      
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight">Contact & Get In Touch</h1>
+        <div class="flex items-center justify-center gap-2 text-sm text-gray-300 font-medium">
+          <a href="index.html" class="hover:text-brand-pink transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-brand-pink">Contact</span>
+        </div>
       </div>
-    </header>
-    <main></main>
-    <footer></footer>
-  </body>
+    </section>
+
+    <!-- ================= CONTACT SECTION ("We're Ready To Assist") ================= -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-bg-light p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-xl mb-16">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+              <span class="text-brand-purple-accent font-bold text-sm sm:text-base">Let's Connect</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">We're Ready To Assist</h2>
+              <p class="text-gray-600 text-base leading-relaxed">
+                We’d love to hear from you. Whether you have questions, want to collaborate, or are looking for ways to support our mission, our team is ready to engage with you. Reach out today and let’s work together to create lasting change.
+              </p>
+
+              <form class="space-y-4 pt-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input type="text" required placeholder="First Name" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                  <input type="text" required placeholder="Last Name" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input type="email" required placeholder="Email Address *" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                  <input type="tel" placeholder="Phone Number" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                </div>
+                <input type="text" required placeholder="Subject" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent" />
+                <textarea rows="4" required placeholder="Your Message *" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-purple-accent"></textarea>
+                
+                <button type="submit" class="bg-brand-purple-accent hover:bg-purple-800 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md">
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl overflow-hidden shadow-2xl">
+                <img src="assets/youth-mentorship.jpg" alt="Assist Team Member" class="w-full h-auto object-cover" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Direct Info Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div class="bg-bg-light p-8 rounded-3xl border border-gray-200 shadow-md space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-pink-100 text-brand-pink flex items-center justify-center text-xl font-bold mx-auto">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 text-lg">Head Office</h4>
+            <p class="text-gray-600 text-xs leading-relaxed">Plot 18, Nhyiaeso Boulevard, Kumasi, Ashanti Region, Ghana</p>
+          </div>
+
+          <div class="bg-bg-light p-8 rounded-3xl border border-gray-200 shadow-md space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-brand-purple-accent flex items-center justify-center text-xl font-bold mx-auto">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 text-lg">Phone Contact</h4>
+            <p class="text-gray-600 text-xs leading-relaxed">+233 (0) 32 201 8899<br />+233 (0) 55 432 1098</p>
+          </div>
+
+          <div class="bg-bg-light p-8 rounded-3xl border border-gray-200 shadow-md space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-brand-purple flex items-center justify-center text-xl font-bold mx-auto">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 text-lg">Email Inquiry</h4>
+            <p class="text-gray-600 text-xs leading-relaxed">info@thriveghanafoundation.org<br />support@thriveghanafoundation.org</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-purple-dark text-white border-t border-purple-900/60 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+        
+        <div class="lg:col-span-4 space-y-6">
+          <a href="index.html" class="inline-block">
+            <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-12 w-auto" />
+          </a>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Thrive Ghana Foundation is a Ghanaian NGO dedicated to empowering women, girls, and marginalized communities through education, clean water, healthcare, and leadership initiatives.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
+            <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <ul class="space-y-2.5 text-sm text-gray-300">
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
+            <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Subscribe to Newsletter</h4>
+          <form class="space-y-3">
+            <input
+              type="email"
+              required
+              placeholder="sample@mail.com"
+              class="w-full bg-purple-950/70 border border-purple-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-pink placeholder-gray-400"
+            />
+            <button
+              type="submit"
+              class="w-full bg-white hover:bg-gray-100 text-brand-purple font-bold py-3 rounded-xl transition-all text-sm shadow-md"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-purple-900/80 text-center text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>&copy; 2026 Thrive Ghana Foundation | All Rights Reserved</p>
+        <p>Empowering communities. Building leaders.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button id="scroll-to-top-btn" class="hidden" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-lg"></i>
+  </button>
+
+  <!-- Donation Modal -->
+  <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
+    <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+      </div>
+      <form class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
+          <div class="grid grid-cols-4 gap-2">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          </div>
+        </div>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>
