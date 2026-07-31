@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.addEventListener('click', () => {
       mobileNav.classList.toggle('hidden');
       const isExpanded = !mobileNav.classList.contains('hidden');
+      toggleBtn.setAttribute('aria-expanded', isExpanded);
       toggleBtn.innerHTML = isExpanded
         ? '<i class="fa-solid fa-xmark text-2xl text-white"></i>'
         : '<i class="fa-solid fa-bars text-2xl text-white"></i>';
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileNav.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
         toggleBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl text-white"></i>';
       });
     });
@@ -180,32 +182,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const openDonateBtns = document.querySelectorAll('.open-donate-modal');
   const closeDonateBtns = document.querySelectorAll('.close-donate-modal');
 
+  function openDonateModal() {
+    if (donateModal) {
+      donateModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDonateModal() {
+    if (donateModal) {
+      donateModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
   openDonateBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (donateModal) {
-        donateModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+      openDonateModal();
     });
   });
 
   closeDonateBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (donateModal) {
-        donateModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
-    });
+    btn.addEventListener('click', closeDonateModal);
   });
 
   if (donateModal) {
     donateModal.addEventListener('click', (e) => {
       if (e.target === donateModal) {
-        donateModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        closeDonateModal();
       }
     });
+  }
+
+  // Open donate modal if hash is #donate
+  if (window.location.hash === '#donate') {
+    openDonateModal();
   }
 
   // Donation Amount Selection
@@ -223,6 +235,55 @@ document.addEventListener('DOMContentLoaded', () => {
       if (customAmountInput) customAmountInput.value = '';
     });
   });
+
+  if (customAmountInput) {
+    customAmountInput.addEventListener('input', () => {
+      if (customAmountInput.value.trim() !== '') {
+        amountBtns.forEach(b => {
+          b.classList.remove('bg-brand-pink', 'text-white', 'border-brand-pink');
+          b.classList.add('bg-gray-100', 'text-gray-800', 'border-gray-300');
+        });
+      }
+    });
+  }
+
+  // --- Modal Logic (RSVP Modal for Events) ---
+  const rsvpModal = document.getElementById('rsvp-modal');
+  const openRsvpBtns = document.querySelectorAll('.open-rsvp-modal');
+  const closeRsvpBtns = document.querySelectorAll('.close-rsvp-modal');
+
+  function openRsvpModal() {
+    if (rsvpModal) {
+      rsvpModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeRsvpModal() {
+    if (rsvpModal) {
+      rsvpModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  openRsvpBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openRsvpModal();
+    });
+  });
+
+  closeRsvpBtns.forEach(btn => {
+    btn.addEventListener('click', closeRsvpModal);
+  });
+
+  if (rsvpModal) {
+    rsvpModal.addEventListener('click', (e) => {
+      if (e.target === rsvpModal) {
+        closeRsvpModal();
+      }
+    });
+  }
 
   // --- Filter Tabs (Gallery & Events) ---
   const filterBtns = document.querySelectorAll('.filter-tab-btn');
@@ -258,6 +319,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryTriggers = document.querySelectorAll('.lightbox-trigger');
   const closeLightboxBtns = document.querySelectorAll('.close-lightbox');
 
+  function closeLightbox() {
+    if (lightboxModal) {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
   galleryTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
@@ -274,12 +342,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   closeLightboxBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (lightboxModal) {
-        lightboxModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+    btn.addEventListener('click', closeLightbox);
+  });
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) {
+        closeLightbox();
       }
     });
+  }
+
+  // --- Escape key close modal handler ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDonateModal();
+      closeRsvpModal();
+      closeLightbox();
+    }
   });
 
   // --- Toast Notification helper ---
@@ -313,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   };
 
-  // Form handling
+  // --- Universal Form Handling ---
   const forms = document.querySelectorAll('form');
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -328,10 +408,12 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           form.reset();
-          if (donateModal && donateModal.classList.contains('active')) {
-            donateModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            showToast('Thank you! Your donation request has been received.');
+          if (donateModal && donateModal.contains(form)) {
+            closeDonateModal();
+            showToast('Thank you! Your donation request (GH₵) has been received.');
+          } else if (rsvpModal && rsvpModal.contains(form)) {
+            closeRsvpModal();
+            showToast('Thank you! Your RSVP registration for the event has been received.');
           } else {
             showToast('Thank you! Your message has been sent.');
           }

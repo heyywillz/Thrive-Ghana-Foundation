@@ -4,12 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Thrive Ghana Foundation" />
+  <meta name="robots" content="index, follow" />
   <meta
     name="description"
     content="Latest news, field stories, press releases, and impact updates from Thrive Ghana Foundation."
   />
-  <title>News & Impact Updates - Thrive Ghana Foundation</title>
-  <link rel="icon" href="assets/Title-logo.webp" />
+  <meta name="keywords" content="Thrive Ghana news, East Gonja borehole commissioning, Ghana NGO press release, child education scholarship Ghana" />
+  <title>Latest News & Field Updates | Thrive Ghana Foundation</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thriveghanafoundation.org/news.html" />
+  <meta property="og:title" content="Latest News & Field Updates | Thrive Ghana Foundation" />
+  <meta property="og:description" content="Stay updated with our latest field stories, clean water commissioning, and community empowerment press releases." />
+  <meta property="og:image" content="assets/Title-logo.webp" />
+  <meta property="og:site_name" content="Thrive Ghana Foundation" />
+  <meta property="og:locale" content="en_GH" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Latest News & Field Updates | Thrive Ghana Foundation" />
+  <meta name="twitter:description" content="Field stories and impact reports from Thrive Ghana Foundation." />
+  <meta name="twitter:image" content="assets/Title-logo.webp" />
+
+  <link rel="canonical" href="https://thriveghanafoundation.org/news.html" />
+  <link rel="icon" type="image/webp" href="assets/Title-logo.webp" />
+  <link rel="apple-touch-icon" href="assets/Title-logo.webp" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,6 +61,23 @@
   <!-- Custom Styles & JS -->
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Thrive Ghana Commissioned Solar Mechanized Water Borehole in East Gonja",
+    "image": [
+      "https://thriveghanafoundation.org/assets/clean-water-initiative.jpg"
+    ],
+    "datePublished": "2026-07-24",
+    "author": {
+      "@type": "Organization",
+      "name": "Thrive Ghana Foundation"
+    }
+  }
+  </script>
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
 
@@ -50,7 +87,7 @@
       <div class="flex items-center justify-between h-20">
         
         <a href="index.html" class="flex items-center gap-3 group shrink-0">
-          <img src="assets/Thrive-logo.webp" alt="Thrive Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+          <img src="assets/Thrive-logo.webp" alt="Thrive Ghana Foundation Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
         </a>
 
         <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
@@ -67,7 +104,7 @@
             Donate
           </a>
 
-          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu" aria-expanded="false">
             <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
           </button>
         </div>
@@ -86,12 +123,12 @@
   </header>
 
   <main>
-    <!-- ================= SHORT HERO SECTION WITH STATIC BACKGROUND (NO ZOOM ON SUBPAGES) ================= -->
+    <!-- ================= SHORT HERO SECTION ================= -->
     <section class="subpage-hero relative overflow-hidden">
-      <!-- Static Clean Background Image Container (No Zoom Effect) -->
+      <!-- Static Clean Background Image Container -->
       <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/healthcare-outreach.jpg');"></div>
 
-      <!-- Increased Rich Black Gradient Overlay -->
+      <!-- Rich Black Gradient Overlay -->
       <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
       
       <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
@@ -124,7 +161,7 @@
             </div>
           </div>
           <div class="lg:col-span-5 relative min-h-[300px]">
-            <img src="assets/clean-water-initiative.jpg" alt="Clean Water Project" class="w-full h-full object-cover" />
+            <img src="assets/clean-water-initiative.jpg" alt="Clean Water Project Borehole Commissioning" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -139,7 +176,7 @@
           <!-- News 1 -->
           <div class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg growlead-card flex flex-col justify-between">
             <div>
-              <img src="assets/education-initiative.jpg" alt="Education Scholarship" class="w-full h-52 object-cover" />
+              <img src="assets/education-initiative.jpg" alt="Scholarship Fund Reaches 100 More Pupils" class="w-full h-52 object-cover" />
               <div class="p-6 space-y-3">
                 <span class="px-3 py-1 bg-pink-100 text-brand-pink text-xs font-bold rounded-full uppercase">Education</span>
                 <h3 class="text-xl font-bold text-gray-900">Scholarship Fund Reaches 100 More Pupils</h3>
@@ -150,14 +187,14 @@
             </div>
             <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 text-xs text-gray-500">
               <span>July 15, 2026</span>
-              <a href="#" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
+              <a href="contact.html" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
             </div>
           </div>
 
           <!-- News 2 -->
           <div class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg growlead-card flex flex-col justify-between">
             <div>
-              <img src="assets/community-empowerment.jpg" alt="Women Leadership" class="w-full h-52 object-cover" />
+              <img src="assets/community-empowerment.jpg" alt="Women Entrepreneurship Micro-Grants" class="w-full h-52 object-cover" />
               <div class="p-6 space-y-3">
                 <span class="px-3 py-1 bg-purple-100 text-brand-purple-accent text-xs font-bold rounded-full uppercase">Leadership</span>
                 <h3 class="text-xl font-bold text-gray-900">Women Entrepreneurship Micro-Grants</h3>
@@ -168,14 +205,14 @@
             </div>
             <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 text-xs text-gray-500">
               <span>June 28, 2026</span>
-              <a href="#" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
+              <a href="contact.html" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
             </div>
           </div>
 
           <!-- News 3 -->
           <div class="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg growlead-card flex flex-col justify-between">
             <div>
-              <img src="assets/healthcare-outreach.jpg" alt="Healthcare Outreach" class="w-full h-52 object-cover" />
+              <img src="assets/healthcare-outreach.jpg" alt="Free Medical Clinic Serves 600 Residents" class="w-full h-52 object-cover" />
               <div class="p-6 space-y-3">
                 <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full uppercase">Healthcare</span>
                 <h3 class="text-xl font-bold text-gray-900">Free Medical Clinic Serves 600 Residents</h3>
@@ -186,7 +223,7 @@
             </div>
             <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 text-xs text-gray-500">
               <span>June 10, 2026</span>
-              <a href="#" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
+              <a href="contact.html" class="font-bold text-brand-pink hover:text-brand-purple">Read More &rarr;</a>
             </div>
           </div>
 
@@ -210,22 +247,22 @@
         </div>
 
         <div class="lg:col-span-2 space-y-4">
-          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Organization</h4>
           <ul class="space-y-2.5 text-sm text-gray-300">
             <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
             <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
-            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Get Involved</a></li>
             <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
           </ul>
         </div>
 
         <div class="lg:col-span-2 space-y-4">
-          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Programs</h4>
           <ul class="space-y-2.5 text-sm text-gray-300">
             <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
             <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
-            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
-            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Events & Workshops</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Media Gallery</a></li>
           </ul>
         </div>
 
@@ -264,26 +301,27 @@
   <!-- Donation Modal -->
   <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
     <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
-      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl" aria-label="Close modal">
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="text-center mb-6">
         <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
-        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects in Ghana.</p>
       </div>
       <form class="space-y-5">
         <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
-          <div class="grid grid-cols-4 gap-2">
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount (GH₵)</label>
+          <div class="grid grid-cols-4 gap-2 mb-3">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100 text-gray-800 border-gray-300">GH₵50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white border-brand-pink">GH₵100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100 text-gray-800 border-gray-300">GH₵250</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100 text-gray-800 border-gray-300">GH₵500</button>
           </div>
+          <input type="number" id="custom-donate-amount" min="1" placeholder="Or enter custom amount (GH₵)" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-pink" />
         </div>
-        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
-        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
-        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-pink" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-pink" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation (GH₵)</button>
       </form>
     </div>
   </div>

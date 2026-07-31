@@ -4,12 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Thrive Ghana Foundation" />
+  <meta name="robots" content="index, follow" />
   <meta
     name="description"
-    content="Thrive Ghana Foundation is a non-profit organization dedicated to empowering children, women, and vulnerable communities across Ghana through education, clean water, healthcare, and leadership initiatives."
+    content="Thrive Ghana Foundation is a non-profit NGO empowering women, youth, and vulnerable communities in Ghana through education, clean water boreholes, healthcare, and leadership development."
   />
-  <title>Home - Thrive Ghana Foundation</title>
-  <link rel="icon" href="assets/Title-logo.webp" />
+  <meta name="keywords" content="Thrive Ghana Foundation, NGO Ghana, clean water Ghana, women empowerment Ghana, youth leadership, Zongo development, Northern Ghana NGO, charity Ghana" />
+  <title>Thrive Ghana Foundation | Empowering Women, Youth & Communities</title>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thriveghanafoundation.org/index.html" />
+  <meta property="og:title" content="Thrive Ghana Foundation | Empowering Women, Youth & Communities" />
+  <meta property="og:description" content="Dedicated to empowering women, girls, and marginalized communities across Ghana through education, clean water, healthcare, and leadership initiatives." />
+  <meta property="og:image" content="assets/Title-logo.webp" />
+  <meta property="og:site_name" content="Thrive Ghana Foundation" />
+  <meta property="og:locale" content="en_GH" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thrive Ghana Foundation | Empowering Women, Youth & Communities" />
+  <meta name="twitter:description" content="Empowering communities and building leaders across Ghana with clean water, education, and healthcare." />
+  <meta name="twitter:image" content="assets/Title-logo.webp" />
+
+  <link rel="canonical" href="https://thriveghanafoundation.org/index.html" />
+  <link rel="icon" type="image/webp" href="assets/Title-logo.webp" />
+  <link rel="apple-touch-icon" href="assets/Title-logo.webp" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,6 +61,31 @@
   <!-- Custom Styles & JS -->
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Thrive Ghana Foundation",
+    "url": "https://thriveghanafoundation.org",
+    "logo": "https://thriveghanafoundation.org/assets/Title-logo.webp",
+    "description": "Thrive Ghana Foundation is a non-profit organization dedicated to empowering children, women, and vulnerable communities across Ghana through education, clean water, healthcare, and leadership initiatives.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot 18, Nhyiaeso Boulevard",
+      "addressLocality": "Kumasi",
+      "addressRegion": "Ashanti Region",
+      "addressCountry": "GH"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+233-32-201-8899",
+      "contactType": "customer service",
+      "email": "info@thriveghanafoundation.org"
+    }
+  }
+  </script>
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
 
@@ -49,7 +94,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- Brand Logo (Responsive Compact Size) -->
+        <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-3 group shrink-0">
           <img src="assets/Thrive-logo.webp" alt="Thrive Ghana Foundation Logo" class="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
         </a>
@@ -70,7 +115,7 @@
             Donate
           </a>
 
-          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu">
+          <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-purple-900/50" aria-label="Toggle Navigation Menu" aria-expanded="false">
             <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
           </button>
         </div>
@@ -89,13 +134,13 @@
   </header>
 
   <main>
-    <!-- ================= HERO SLIDER SECTION WITH ZOOM OUT (INDEX ONLY) & INCREASED GRADIENT ================= -->
+    <!-- ================= HERO SLIDER SECTION ================= -->
     <section id="hero-section" class="relative min-h-[85vh] flex items-center overflow-hidden">
       
-      <!-- Zoom-Out Background Image Container (Homepage ONLY) -->
+      <!-- Zoom-Out Background Image Container -->
       <div id="hero-bg-img" class="absolute inset-0 bg-cover bg-center animate-hero-zoomout transition-opacity duration-500" style="background-image: url('assets/gallery-1.jpg');"></div>
 
-      <!-- Increased Rich Black Gradient Overlay -->
+      <!-- Rich Black Gradient Overlay -->
       <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-10"></div>
 
       <!-- Left Vertical Slider Progress Indicator -->
@@ -103,12 +148,12 @@
         <div id="hero-progress-bar" class="w-full h-1/3 bg-brand-pink rounded-full transition-all duration-500"></div>
       </div>
 
-      <!-- Bottom Left Slider Control Buttons ([ < ] [ > ]) -->
+      <!-- Bottom Left Slider Control Buttons -->
       <div class="absolute bottom-6 left-6 z-20 flex items-center gap-1">
-        <button id="hero-prev" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-brand-pink text-white flex items-center justify-center border border-white/20 backdrop-blur-md transition-all cursor-pointer">
+        <button id="hero-prev" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-brand-pink text-white flex items-center justify-center border border-white/20 backdrop-blur-md transition-all cursor-pointer" aria-label="Previous Slide">
           <i class="fa-solid fa-chevron-left text-xs"></i>
         </button>
-        <button id="hero-next" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-brand-pink text-white flex items-center justify-center border border-white/20 backdrop-blur-md transition-all cursor-pointer">
+        <button id="hero-next" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-brand-pink text-white flex items-center justify-center border border-white/20 backdrop-blur-md transition-all cursor-pointer" aria-label="Next Slide">
           <i class="fa-solid fa-chevron-right text-xs"></i>
         </button>
       </div>
@@ -246,7 +291,7 @@
           
           <div class="lg:col-span-5">
             <div class="rounded-3xl overflow-hidden shadow-2xl">
-              <img src="assets/director-portrait.jpg" alt="Executive Director" class="w-full h-auto object-cover" />
+              <img src="assets/director-portrait.jpg" alt="Executive Director Hajia Amina Sulemana" class="w-full h-auto object-cover" />
             </div>
           </div>
 
@@ -298,6 +343,7 @@
               Organisational Values
             </h2>
           </div>
+
           <div class="lg:col-span-7">
             <p class="text-gray-200 text-lg leading-relaxed">
               Our values are the guiding principles that shape our mission to empower women and girls across Ghana’s five northern regions and Zongo and settler communities. They define who we are, how we work, and the impact we seek to make.
@@ -310,7 +356,7 @@
           
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
-              <img src="assets/education-initiative.jpg" alt="Leadership" class="w-full h-full object-cover" />
+              <img src="assets/education-initiative.jpg" alt="Leadership Initiative" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold text-white">Leadership</h3>
             <p class="text-gray-300 text-sm leading-relaxed">
@@ -320,7 +366,7 @@
 
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
-              <img src="assets/community-empowerment.jpg" alt="Empowerment" class="w-full h-full object-cover" />
+              <img src="assets/community-empowerment.jpg" alt="Empowerment Workshop" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold text-white">Empowerment</h3>
             <p class="text-gray-300 text-sm leading-relaxed">
@@ -330,7 +376,7 @@
 
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
-              <img src="assets/youth-mentorship.jpg" alt="Integrity" class="w-full h-full object-cover" />
+              <img src="assets/youth-mentorship.jpg" alt="Integrity and Mentorship" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold text-white">Integrity</h3>
             <p class="text-gray-300 text-sm leading-relaxed">
@@ -340,7 +386,7 @@
 
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
-              <img src="assets/healthcare-outreach.jpg" alt="Inclusivity" class="w-full h-full object-cover" />
+              <img src="assets/healthcare-outreach.jpg" alt="Inclusivity Healthcare" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold text-white">Inclusivity</h3>
             <p class="text-gray-300 text-sm leading-relaxed">
@@ -350,7 +396,7 @@
 
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
-              <img src="assets/clean-water-initiative.jpg" alt="Collaboration" class="w-full h-full object-cover" />
+              <img src="assets/clean-water-initiative.jpg" alt="Collaboration Clean Water Project" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold text-white">Collaboration</h3>
             <p class="text-gray-300 text-sm leading-relaxed">
@@ -360,7 +406,7 @@
 
           <div class="space-y-4">
             <div class="rounded-2xl overflow-hidden h-64 border border-white/10 shadow-xl">
-              <img src="assets/director-portrait.jpg" alt="Partnerships and Networks" class="w-full h-full object-cover" />
+              <img src="assets/director-portrait.jpg" alt="Partnerships and Networks Address" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold text-white">Partnerships and Networks</h3>
             <p class="text-gray-300 text-sm leading-relaxed">
@@ -406,11 +452,11 @@
 
             <details class="growlead-faq-item">
               <summary class="text-lg">
-                <span>How can I donate to support your work?</span>
+                <span>How can I donate in Ghana Cedi (GH₵) to support your work?</span>
                 <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
               </summary>
               <p class="text-gray-600 text-sm leading-relaxed mt-3">
-                You can donate directly through our website’s Donate page using secure online payment options. Every contribution goes directly into supporting our projects, training programs, and community initiatives.
+                You can donate directly through our website’s Donate modal using Mobile Money (MoMo) or card options. All contributions are accepted in Ghana Cedi (GH₵) and go directly into supporting community projects.
               </p>
             </details>
 
@@ -430,7 +476,7 @@
                 <i class="fa-solid fa-arrow-down arrow-icon text-sm transition-transform duration-300"></i>
               </summary>
               <p class="text-gray-600 text-sm leading-relaxed mt-3">
-                Your donations support leadership training, youth development, women empowerment programs, mentorship initiatives, and community development projects. We ensure transparency and accountability in how funds are used.
+                Your donations support leadership training, youth development, clean water boreholes, maternal health outreach, and women empowerment programs. We ensure 100% transparency and accountability.
               </p>
             </details>
 
@@ -539,22 +585,22 @@
         </div>
 
         <div class="lg:col-span-2 space-y-4">
-          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Company</h4>
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Organization</h4>
           <ul class="space-y-2.5 text-sm text-gray-300">
             <li><a href="about.html" class="hover:text-brand-pink transition-colors">About Us</a></li>
             <li><a href="about.html" class="hover:text-brand-pink transition-colors">Mission & Vision</a></li>
-            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Get Involved</a></li>
             <li><a href="news.html" class="hover:text-brand-pink transition-colors">Press & Media</a></li>
           </ul>
         </div>
 
         <div class="lg:col-span-2 space-y-4">
-          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Support</h4>
+          <h4 class="text-white font-bold text-base border-b border-purple-800 pb-2">Programs</h4>
           <ul class="space-y-2.5 text-sm text-gray-300">
             <li><a href="contact.html" class="hover:text-brand-pink transition-colors">Help Center</a></li>
             <li><a href="index.html#what-we-do" class="hover:text-brand-pink transition-colors">Services</a></li>
-            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Solutions</a></li>
-            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Case Study</a></li>
+            <li><a href="events.html" class="hover:text-brand-pink transition-colors">Events & Workshops</a></li>
+            <li><a href="gallery.html" class="hover:text-brand-pink transition-colors">Media Gallery</a></li>
           </ul>
         </div>
 
@@ -593,26 +639,27 @@
   <!-- Donation Modal -->
   <div id="donate-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-purple-dark/85 backdrop-blur-md">
     <div class="modal-container bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-gray-100 max-h-[90vh] overflow-y-auto">
-      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl">
+      <button class="close-donate-modal absolute top-5 right-5 text-gray-400 hover:text-gray-800 text-2xl" aria-label="Close modal">
         <i class="fa-solid fa-xmark"></i>
       </button>
       <div class="text-center mb-6">
         <h3 class="text-2xl font-extrabold text-brand-purple-dark">Support Thrive Ghana Foundation</h3>
-        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects.</p>
+        <p class="text-xs text-gray-500 mt-1">Your contribution directly funds grassroots community projects in Ghana.</p>
       </div>
       <form class="space-y-5">
         <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount</label>
-          <div class="grid grid-cols-4 gap-2">
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$25</button>
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white">$50</button>
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$100</button>
-            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100">$250</button>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Select Donation Amount (GH₵)</label>
+          <div class="grid grid-cols-4 gap-2 mb-3">
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100 text-gray-800 border-gray-300">GH₵50</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-brand-pink text-white border-brand-pink">GH₵100</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100 text-gray-800 border-gray-300">GH₵250</button>
+            <button type="button" class="donate-amount-btn py-2 px-3 rounded-xl border font-bold text-sm bg-gray-100 text-gray-800 border-gray-300">GH₵500</button>
           </div>
+          <input type="number" id="custom-donate-amount" min="1" placeholder="Or enter custom amount (GH₵)" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-pink" />
         </div>
-        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
-        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm" />
-        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation</button>
+        <input type="text" required placeholder="Full Name" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-pink" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-gray-50 border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-pink" />
+        <button type="submit" class="w-full bg-brand-pink hover:bg-brand-pink-hover text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md">Complete Donation (GH₵)</button>
       </form>
     </div>
   </div>
